@@ -152,6 +152,12 @@ models
 ### html 5 新标签(移动端受益较多的)
 
 canvas 画布
+
+```
+
+```
+更多画布能做的图形: [Check it out!](http://www.w3schools.com/html/html5_canvas.asp)
+
 video  视频
 
 ```
@@ -166,7 +172,7 @@ video  视频
 color: 会弹出色板选择颜色 (不支持IE及Safari)
 通过得到的input元素的value值, 来获取相对应选择的值
 
-相似在移动端开发最实用的有: date, email, number, tel
+相似在移动端开发最实用的input type有: date, email, number, tel
 
 ```
 <input type="color" id="color_picker" />
