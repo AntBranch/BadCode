@@ -155,6 +155,8 @@ canvas 画布
 video  视频
 
 ### 新input types
+<input type="color" />
+
 color
 date
 datetime
