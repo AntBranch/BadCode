@@ -154,6 +154,12 @@ models
 canvas 画布
 
 ```
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
+
+var rectangle = document.getElementById("myCanvas");
+var context = c.getContext("2d");
+context.fillStyle = "#FF0000";
+context.fillRect(0,0,100,80);
 
 ```
 更多画布能做的图形: [Check it out!](http://www.w3schools.com/html/html5_canvas.asp)
