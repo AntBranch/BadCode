@@ -153,6 +153,7 @@ models
 
 canvas 画布
 
+画一个100 x 80的红色实心长方形
 ```
 <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
 
