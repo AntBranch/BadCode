@@ -9,6 +9,7 @@
 
 ### Bad Code 示例伪代码
 
+```
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head><meta ...../><meta ..../></head>
 
@@ -59,44 +60,51 @@ initSearchmenu('scbar', '');
 </script>
 
 <script type="text/javascript">document.onkeyup = function(e){keyPageScroll(e, 0, 1, 'forum.php?mod=viewthread&tid=30323', 1);}</script>
-
-
+```
 
 ### 以上代码是典型前端开发/维护99.99%概率会见到过的一团糟页面之一
 
 ### Bad No.1:
 [style] tag: 个人不建议把大量的css属性写在html的style 标签里主体里, 某些特殊个别用到的, 仅限于在当前页面才需要处理的css属性, 可以适当包含一些, 如果量大的话, 强烈建议单独出一份css样式表文件, 在当前页引用
 
+```
 <link href="template/bbs2015/common/bootstrap.min.css" rel="stylesheet" type="text/css">
 <!-- <link href="http://appcan.cn/css/appcanfooter.css"  rel="stylesheet"/> -->
+```
 
 样式表可以同时引用多个, href 可以是相对路径, 或者绝对路径, 甚至可以是链接, 这样既能保持源码的精简, 也便于以后的维护和扩展
 
 ### Bad No.2:
 [script] tag: 同样, js的语言本来就比较啰嗦, 操作dom元素或者做一些数据上的逻辑处理, 代码量会随业务的复杂型直线上升, 如果像以上代码一样, 多处内嵌及直接在页面里处理逻辑, 长久积攒, 日后几乎无法维护, 所以单独出一份js文件来进行管理是非常必要的
 
-
+```
 <script src="http://bbs.appcan.cn//template/bbs2015/js/jquery1.min.js" type="text/javascript"></script>
 <script src="data/cache/common.js" type="text/javascript"></script>
+```
 
 同样, js脚本也支持引用多个, 但脚本之间有依赖关系的话, 顺序上是有要求的, 以上面为例, 如果common.js中的方法或者任何语言使用到jQuery的话, jQuery.min.js脚本必须在common.js之前先引用, 这样在加载页面的时候不会报错.
 
-以下为示例参考 -> [] 中括号意为文件夹
+以下为示例参考
 
-[utils]
- - DataAuthentication.js (例如是否为email, 手机, 密码强度核验, 敏感字过滤等, 必填信息是否为空 etc.)
- - DateFormatter.js (时间格式的处理, 很多网页显示时间的格式都会不一样, 这个js中可以专门处理)
- - Animations.js (处理动画的公用类)
- - Constants.js (定义一些静态数据, 方便开发中调用)
- ....
- ...
-[network]
- - account_api.js (专门处理登录登出, 注册, 找回密码, 资料更新, 上传头像 etc.)
- - 
+```
+utils
+ * DataAuthentication.js (例如是否为email, 手机, 密码强度核验, 敏感字过滤等, 必填信息是否为空 etc.)
+ * DateFormatter.js (时间格式的处理, 很多网页显示时间的格式都会不一样, 这个js中可以专门处理)
+ * Animations.js (处理动画的公用类)
+ * Constants.js (定义一些静态数据, 方便开发中调用)
+network
+ * account_api.js (专门处理登录登出, 注册, 找回密码, 资料更新, 上传头像 etc.)
+ * order_api.js (处理订单相关所有)
+models
+ * User.js 
+ * Order.js
+ * Notification.js
+```
 
 ### Bad No.3
 上例中body主体里的元素, 在编程规范中是非常忌讳的, 和其他开发语言一样, 良好的编码规范, 让开发者在阅读和理解上花的时间会大大减少, 以下为格式规范后的参考, 可读性大大提高
 
+```
 <body>
     <table id="info_table">
         <thead>
@@ -138,7 +146,7 @@ initSearchmenu('scbar', '');
         </form>
     </div>
 </body>
-
+```
 
 
 ### html 5 语言新扩充的Tag
