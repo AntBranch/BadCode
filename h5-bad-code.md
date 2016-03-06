@@ -1,13 +1,14 @@
 # 我从Bad Code中学到了什么
 
-### 前端开发最核心的三要素众所周知: html, css, javascript
-### 但Web 2.0年代的前端开发与现在的移动前端的开发, 有着很多不同
+前端开发最核心的三要素众所周知: html, css, javascript
+但Web 2.0年代的前端开发与现在的移动前端的开发, 有着很多不同
 
-### 前端开发噩梦之一: 各种浏览器的兼容性, 明星代表IE系列
-### 前端开发噩梦之二: 原生javascript语言又臭又长, 易读性忒差
-### 前端开发噩梦之三: 品种繁多的 html/css/javascript 封装解决方案过多(很多同质化严重/本身设计也有缺陷), 首用或者做接盘侠维护/二次开发的学习成本实在太高
+前端开发噩梦之一: 各种浏览器的兼容性, 明星代表IE系列
+前端开发噩梦之二: 原生javascript语言又臭又长, 易读性忒差
+前端开发噩梦之三: 品种繁多的 html/css/javascript 封装解决方案过多(很多同质化严重/本身设计也有缺陷), 首用或者做接盘侠维护/二次开发的学习成本实在太高
 
 ### Bad Code 示例伪代码
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head><meta ...../><meta ..../></head>
 
