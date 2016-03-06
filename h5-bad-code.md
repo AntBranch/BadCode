@@ -155,7 +155,11 @@ canvas 画布
 video  视频
 
 ### 新input types
+color: 会弹出色板选择颜色
+
+```
 <input type="color" />
+```
 
 color
 date
