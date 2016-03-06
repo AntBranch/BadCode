@@ -149,5 +149,22 @@ models
 ```
 
 
-### html 5 语言新扩充的Tag
+### html 5 新标签(移动端受益较多的)
 
+canvas 画布
+video  视频
+
+### 新input types
+color
+date
+datetime
+datetime-local
+email
+month
+number
+range
+search
+tel
+time
+url
+week
