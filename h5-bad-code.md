@@ -154,23 +154,28 @@ models
 canvas 画布
 video  视频
 
+```
+<video width="400" controls>
+    <source src="mov_bbb.mp4" type="video/mp4">
+    <source src="mov_bbb.ogg" type="video/ogg">
+    Your browser does not support HTML5 video.
+</video>
+```
+
 ### 新input types
-color: 会弹出色板选择颜色
+color: 会弹出色板选择颜色 (不支持IE及Safari)
+通过得到的input元素的value值, 来获取相对应选择的值
+
+相似在移动端开发最实用的有: date, email, number, tel
 
 ```
-<input type="color" />
+<input type="color" id="color_picker" />
+
+<script>
+    var theInput = document.getElementById("color_picker");
+    theInput.addEventListener("input", function() {
+    	console.log(theInput.value);
+    }, false);
+</script>
 ```
 
-color
-date
-datetime
-datetime-local
-email
-month
-number
-range
-search
-tel
-time
-url
-week
