@@ -16,7 +16,7 @@
 
 * [C Bad Code](https://github.com/AntBranch/BadCode/blob/master/c-bad-code.md)    :作者[monstersb](https://github.com/monstersb) 已经认领，待开始
 
-* [HMTL5 Bad Code](https://github.com/AntBranch/BadCode/blob/master/h5-bad-code.md)    :作者[tobatha](https://github.com/tobatha) 已经认领，待开始
+* [HMTL5 Bad Code : 我从Bad Code中学到了什么](https://github.com/AntBranch/BadCode/blob/master/h5-bad-code.md)    :作者[tobatha](https://github.com/tobatha) ，前端开发/维护99.99%概率会见到过的一团糟页面，Web 2.0年代的前端开发与现在的移动前端的开发有着很多不同。
 
 * [C++ Bad Code](https://github.com/AntBranch/BadCode/blob/master/cpp-bad-code.md)    :作者[chenyuxiaodhr](https://github.com/chenyuxiaodhr) 已经认领，待开始
 
