@@ -9,6 +9,9 @@
    - [第三方库入侵太深] (#第三方库入侵太深)
    - [用原生控件] (#用原生控件)
    - [主色调] (#主色调)
+   - [源文件分类存放] (#源文件分类存放)
+   - [类名前加上前缀] (#类名前加上前缀)
+   - [方法调用短一点] (#方法调用短一点)
    
   
 ### 不要再面向字典开发了
@@ -228,8 +231,37 @@ MVC其实是iOS开发中最基本的模式，关于ViewController里面的tablev
 
 </pre>
  
- 
+### 源文件分类存放
+不要把所有源文件堆放在同一个目录下。
+小型应用，根据文件的功能用途，按照应用架构（Model、View、Controller等），把源文件放入不同路径分开存放。
+中型、大型应用，按照功能的不同，区分开不同模块和子模块，并放入不同路径分开存放。在基层模块中，可以按照架构来分类存放文件。
 
+### 类名前加上前缀
+Objective-C是不支持命名空间的，所以同一个应用内不得出现名称相同的两个类。
+给类名前面加上两三个大写字母作为前缀是一个好习惯。尤其是打算开源供他人使用的库。
+比如可以取名`SKImageCache`，而不是`ImageCache`。
 
-
-
+### 方法调用短一点
+Cocoa和很多第三方库的API都非常长，而你的屏幕就那么宽，所以别在一行里把代码写得太长。
+比如：SDWebImage
+``` objc
+[backgroundImageView sd_setImageWithURL:[NSURL URLWithString:@"http://xxxx.xxx.com/xxx.png"] placeholderImage:[UIImage imageNamed:@"backgroundTemp"] options:SDWebImageContinueInBackground completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    // next step
+}];
+```
+解决办法是把实参从『方法调用』中解放出来，并用换行来分割各个参数：
+``` objc
+NSURL *url = [NSURL URLWithString:@"http://xxxx.xxx.com/xxx.png"];
+UIImage *image = [UIImage imageNamed:@"backgroundTemp"];
+    
+[backgroundImageView sd_setImageWithURL:url
+                       placeholderImage:image
+                                options:SDWebImageContinueInBackground
+                              completed:^(UIImage *image,
+                                          NSError *error,
+                                          SDImageCacheType cacheType,
+                                          NSURL *imageURL) {
+                                  // next step
+}];
+```
+写成这样是不是好多了呢？
