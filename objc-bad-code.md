@@ -9,6 +9,8 @@
    - [源文件分类存放] (#源文件分类存放)
    - [类名前加上前缀] (#类名前加上前缀)
    - [方法调用短一点] (#方法调用短一点)
+   - [在类头文件中尽量少引入其他头文件] (#在类头文件中尽量少引入其他头文件)
+   - [多用类型常量,少用#define预处理指令] (#多用类型常量,少用#define预处理指令)
    
   
 ### 不要再面向字典开发了
@@ -254,3 +256,45 @@ UIImage *image = [UIImage imageNamed:@"backgroundTemp"];
 }];
 ```
 写成这样是不是好多了呢？
+
+### 在类头文件中尽量少引入其他头文件
+- 除非有必要，否则不要引入头文件。一般来说，应在某个类的头文件中使用 向前声明（`@class PersonModel;`）来提及别的类，并在实现文件中引入那些类的头文件。这样做可以尽量降低类之间的耦合（couping)。
+- 有时无法使用 向前声明（`@class PersonModel;`），比如要声明某个类遵循意向协议。 这种情况下，尽量把 “该类遵循某协议” 的这条声明 移至 “分类Category” 中。如果不行的话， 就把协议单独放在一个头文件中，然后将其引入。
+
+
+### 多用类型常量，少用#define预处理指令
+**少用** : #define ANIMATION_DURATION 0.3
+
+**最好用** :
+```objc
+// 变量一定要同时用static 与 const 来声明。只在.m使用
+static const NSTimeInterval YXAnimationDuration = 0.3;
+```
+
+
+- 若需要对外公布使用
+
+例1 ：
+
+```objc
+// View.h
+extern const NSTimeInterval YXAnimationDuration;
+// View.m
+const NSTimeInterval YXAnimationDuration = 0.3;
+```
+
+例2：
+
+```objc
+// View.h
+extern NSString *const YXStringConstant;
+// View.m
+NSString *const YXStringConstant = @"VALUE”;
+```
+
+**要点**
+
+- 不要使用预处理指令定义常量。这样定义 出来的常量不含类型信息，编译器只是会在编译前据此执行查找与替换操作。即使有人重新定义了常量值，编译器也不会产生警告信息，这将导致应用程序中的常量值不一致。
+
+- 在实现文件中使用 `static const` 来定义“只在编译单元内可见的常量（`translation-unit-specific constant`）”。 由于此类常量不在全局常量表中，所以无需为其名称加前缀。
+- 在头文件中使用`extern` 来声明全局常量，并在相关实现文件中定义其值。 这种常量要出现在全局符号表中，所以其名称应加以区隔，通常用 和他相关的类名做前缀。
