@@ -33,7 +33,7 @@
 
 感兴趣请联系我，github [coderyi](https://github.com/coderyi),weibo [coderyi9](http://weibo.com/2136847320/profile?topnav=1&wvr=6).
 
-贡献指引请看 [CONTRIBUTING](CONTRIBUTING.md).
+贡献指引请看这里 [CONTRIBUTING](CONTRIBUTING.md).
 
 
 
