@@ -4,7 +4,7 @@
 
 ###目录
 
-* [Objective Bad Code : 我从烂代码中学会了什么](https://github.com/AntBranch/BadCode/blob/master/objc-bad-code.md)    : 作者 [Liqiankun](https://github.com/Liqiankun)，文章简述了Objective-C的一些烂代码，内容包括不要再面向字典开发了，谁的工作谁干，第三方库入侵太深，用原生控件，主色调。
+* [Objective-C Bad Code : 我从烂代码中学会了什么](https://github.com/AntBranch/BadCode/blob/master/objc-bad-code.md)    : 作者 [Liqiankun](https://github.com/Liqiankun)，文章简述了Objective-C的一些烂代码，内容包括不要再面向字典开发了，谁的工作谁干，第三方库入侵太深，用原生控件，主色调。
 
 * [Swift Bad Code : 我从烂代码中学会了什么](https://github.com/AntBranch/BadCode/blob/master/swift-bad-code.md)    :作者[SemperIdem](https://github.com/SemperIdem) ，很多Swift开发都会遗留Objective-C的习惯，但终归是两种不同的语言；强制解包到处都是；以及色调使用该注意的问题。
  

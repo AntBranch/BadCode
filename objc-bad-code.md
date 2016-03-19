@@ -11,6 +11,7 @@
    - [方法调用短一点] (#方法调用短一点)
    - [在类头文件中尽量少引入其他头文件] (#在类头文件中尽量少引入其他头文件)
    - [多用类型常量,少用#define预处理指令] (#多用类型常量,少用#define预处理指令)
+   - [重写getter setter方法] (#重写getter setter方法)
    
   
 ### 不要再面向字典开发了
@@ -298,3 +299,57 @@ NSString *const YXStringConstant = @"VALUE”;
 
 - 在实现文件中使用 `static const` 来定义“只在编译单元内可见的常量（`translation-unit-specific constant`）”。 由于此类常量不在全局常量表中，所以无需为其名称加前缀。
 - 在头文件中使用`extern` 来声明全局常量，并在相关实现文件中定义其值。 这种常量要出现在全局符号表中，所以其名称应加以区隔，通常用 和他相关的类名做前缀。
+
+
+
+### 重写getter setter方法
+
+- setter
+有些哥们儿不太喜欢重写setter方法，而是单独再提供一个api来更新数据。事实上，我们通过重写setter方法，可以给我们带来很大的便利。
+
+举例:
+
+```objc
+- (void)setSelectedHospitalModel:(HDFJiaHaoConsultHistoryModel *)selectedHospitalModel {
+  if (_selectedHospitalModel != selectedHospitalModel) {
+    _selectedHospitalModel = selectedHospitalModel;
+    self.hospitalTextField.text = selectedHospitalModel.hospitalName;
+    self.departmentTextField.text = selectedHospitalModel.hospitalFacultyName;
+  }
+}
+// 更新数据显示,只需要调用 set方法即可
+self.selectedHospitalModel = selectedModel;
+```
+
+
+
+- getter
+尽量不要使用_name这种类型的调用，而是声明为属性，直接使用self.name这样的写法。声明为属性，我们可以重写getter方法，而且就是所谓的lazy loading。
+
+举例:
+
+```objc
+- (NSMutableArray *)yearSources {
+  if (_yearSources == nil) {
+    _yearSources = [[NSMutableArray alloc] init];
+    int curYear = (int)[[NSDate date] hdf_year];
+    for (int year = 1970; year <= curYear + 100; ++year) {
+      [_yearSources addObject:@(year)];
+    }
+  }
+  return _yearSources;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
