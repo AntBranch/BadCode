@@ -1,4 +1,5 @@
-#BadCode
+#BadCode[![Slack](https://antbr.herokuapp.com/badge.svg)](https://antbr.herokuapp.com/)
+
 
 创建了这个badcode的仓库，希望收集那些烂代码，改善编程。
 
