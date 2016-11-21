@@ -263,7 +263,7 @@ UIImage *image = [UIImage imageNamed:@"backgroundTemp"];
 - 有时无法使用 向前声明（`@class PersonModel;`），比如要声明某个类遵循意向协议。 这种情况下，尽量把 “该类遵循某协议” 的这条声明 移至 “分类Category” 中。如果不行的话， 就把协议单独放在一个头文件中，然后将其引入。
 
 
-### 多用类型常量，少用#define预处理指令
+### #多用类型常量,少用#define预处理指令
 **少用** : #define ANIMATION_DURATION 0.3
 
 **最好用** :
