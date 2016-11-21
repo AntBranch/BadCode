@@ -11,7 +11,7 @@
    - [方法调用短一点] (#方法调用短一点)
    - [在类头文件中尽量少引入其他头文件] (#在类头文件中尽量少引入其他头文件)
    - [多用类型常量少用#define预处理指令] (#多用类型常量少用#define预处理指令)
-   - [重写getter setter方法] (#重写getter setter方法)
+   - [重写getter|Setter方法] (#重写getter|Setter方法)
    
   
 ### 不要再面向字典开发了
@@ -302,7 +302,7 @@ NSString *const YXStringConstant = @"VALUE”;
 
 
 
-### 重写getter setter方法
+### 重写getter|Setter方法
 
 - setter
 有些哥们儿不太喜欢重写setter方法，而是单独再提供一个api来更新数据。事实上，我们通过重写setter方法，可以给我们带来很大的便利。
